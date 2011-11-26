@@ -1,0 +1,116 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Mojito.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <controls:Pivot Title="MOJITO" Foreground="#AAAAAA">
+            <controls:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Foreground="#007934"/>
+                </DataTemplate>
+            </controls:Pivot.HeaderTemplate>
+            <controls:PivotItem Header="accounts">
+                <Grid>
+                    <TextBlock Name="accounts_textBlock0" TextWrapping="Wrap" Text="There are no accounts to display at this time." Margin="12,0,0,0" Foreground="Black" FontSize="28" Visibility="Collapsed" />
+                    <ListBox Name="accounts_listBox1" Height="436" Margin="12,0,0,183">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="38" />
+                                        <RowDefinition Height="57" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition Width="183" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Path=Name}" Grid.Column="0" Grid.Row="0" Foreground="Black" FontSize="28" />
+                                    <TextBlock Text="{Binding Path=LastUpdated}"  Grid.Column="0" Grid.Row="1" Foreground="#AAAAAA" />
+                                    <TextBlock Text="{Binding Path=Balance, StringFormat=c}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Foreground="#6DB322" FontSize="36" TextAlignment="Right" VerticalAlignment="Top" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock Text="NET WORTH" Foreground="Black" FontSize="28" Margin="12,503,0,43" HorizontalAlignment="Left" Width="225" FontWeight="Normal" VerticalAlignment="Center" Height="53" />
+                    <TextBlock Text="Total from all accounts" Foreground="#AAAAAA" Margin="12,561,-3,10" />
+                    <TextBlock Text="N/A" Foreground="#6DB322" FontSize="36" TextAlignment="Right" Margin="237,503,11,39" VerticalAlignment="Center" Height="58" Name="accounts_textBlock1" />
+                </Grid>
+            </controls:PivotItem>
+            <controls:PivotItem Header="budgets">
+                <Grid>
+                    <TextBlock Name="budgets_textBlock0" TextWrapping="Wrap" Text="There are no budgets to display at this time." Margin="12,0,0,0" Foreground="Black" FontSize="28" Visibility="Collapsed" />
+                    <ListBox Name="budgets_listBox1" Height="619" Margin="12,0,0,0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="48" />
+                                        <RowDefinition Height="55" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="216" />
+                                        <ColumnDefinition Width="217" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Path=Name}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Foreground="Black" FontSize="28" Margin="0,0,0,6" />
+                                    <TextBlock Text="{Binding Path=Display}" Grid.Column="1" Grid.Row="0" Foreground="#AAAAAA" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,6" />
+                                    <Image Width="433" Height="15" Source="{Binding Path=GraphImage}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,40" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+            <controls:PivotItem Header="transactions">
+                <Grid>
+                    <TextBlock TextWrapping="Wrap" Text="This feature is coming soon!" Margin="12,0,0,0" Foreground="Black" FontSize="28" />
+                </Grid>
+            </controls:PivotItem>
+            <controls:PivotItem Header="notifications">
+                <Grid>
+                    <TextBlock Name="notifications_textBlock0" TextWrapping="Wrap" Text="There are no notifications to display at this time." Margin="12,0,0,0" Foreground="Black" FontSize="28" Visibility="Collapsed" />
+                    <ListBox Name="notifications_listBox1" Height="619" Margin="12,0,0,0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="333" />
+                                        <ColumnDefinition Width="100" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Path=Description}" Grid.Column="0" Foreground="Black" FontSize="20" TextWrapping="Wrap" Margin="0,0,0,30" />
+                                    <TextBlock Text="{Binding Path=Date}" Grid.Column="1" Foreground="#AAAAAA" FontSize="26" TextAlignment="Right" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+
+        <ProgressBar Opacity="1" Height="4" HorizontalAlignment="Left" VerticalAlignment="Center" Name="progressBar1" Width="480" Visibility="Collapsed" Foreground="#007934" Margin="0,398" Background="Black" />
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="#CCCCCC" ForegroundColor="Black" Opacity="0.8">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuItem1" Text="refresh" Click="menuItem1_Click" />
+                <shell:ApplicationBarMenuItem x:Name="menuItem2" Text="sign out" Click="menuItem2_Click" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

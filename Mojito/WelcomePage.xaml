@@ -1,0 +1,64 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Mojito.WelcomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False" Foreground="Black" Background="White">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="MOJITO" Foreground="#AAAAAA" Style="{StaticResource PhoneTextNormalStyle}" />
+            <TextBlock x:Name="PageTitle" Text="sign in" Margin="9,-7,0,0" Foreground="#007934" Style="{StaticResource PhoneTextTitle1Style}" />
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBox Height="76" HorizontalAlignment="Left" Margin="0,53,0,0" Name="textBox1" Text="" VerticalAlignment="Top" Width="456" BorderBrush="#FF6DB322" Padding="2">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScope.Names>
+                            <InputScopeName NameValue="EmailUserName"/>
+                        </InputScope.Names>
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <TextBlock Height="46" HorizontalAlignment="Left" Margin="12,18,0,0" Name="textBlock1" Text="Email Address:" VerticalAlignment="Top" Width="438" />
+            <PasswordBox BorderBrush="#FF6DB322" Height="76" HorizontalAlignment="Left" Margin="0,192,0,0" Name="textBox2" Padding="2" VerticalAlignment="Top" Width="456" />
+            <TextBlock Height="46" HorizontalAlignment="Left" Margin="12,157,0,0" Name="textBlock2" Text="Password:" VerticalAlignment="Top" Width="438" />
+            <Button Content="sign in" Height="72" HorizontalAlignment="Left" Margin="0,558,0,0" Name="button1" VerticalAlignment="Top" Width="223" Foreground="#FF007934" BorderBrush="#FF6DB322" Click="button1_Click" />
+            <TextBlock Height="190" HorizontalAlignment="Left" Margin="12,319,0,0" Name="textBlock3" Text="By tapping the Sign In button below, you authorize the Mojito application to access your Mint.com account. Your login information will be encrypted and stored locally on your device for future use. Use of this application is also subject to the Terms of Use of Mint.com." VerticalAlignment="Top" Width="438" Foreground="#FFAAAAAA" TextWrapping="Wrap" />
+            <Button BorderBrush="#FF6DB322" Content="reset" Foreground="#FF007934" Height="72" HorizontalAlignment="Left" Margin="233,558,0,0" Name="button2" VerticalAlignment="Top" Width="223" Click="button2_Click" />
+
+            <ProgressBar Opacity="1" Height="4" HorizontalAlignment="Left" VerticalAlignment="Center"  
+                  Name="progressBar1" Width="480" Visibility="Collapsed" Foreground="#6DB322" Margin="0,398" Background="Black" />
+
+        </Grid>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
